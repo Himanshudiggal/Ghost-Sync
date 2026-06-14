@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["ghost_sync*"]
+exclude = ["ghost_sync_reference*", "tests*", "tests_reference*"]
+
+[project]
+name = "ghost-sync"
+version = "0.1.0"
+description = "Cross-device P2P clipboard synchronizer over local Wi-Fi"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+keywords = ["clipboard", "p2p", "sync", "networking", "cryptography"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Networking",
+    "Topic :: Security :: Cryptography",
+]
+dependencies = [
+    "PyNaCl>=1.5.0",
+    "msgpack>=1.0.0",
+    "zeroconf>=0.80.0",
+    "noiseprotocol>=0.3.1",
+    "pystray>=0.19.0",
+    "Pillow>=9.0.0",
+    "qrcode>=7.0",
+]
+
+[project.optional-dependencies]
+macos = ["pyobjc-framework-Cocoa>=9.0"]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+    "pytest-cov>=4.0",
+    "mypy>=1.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+ghostsync = "ghost_sync.__main__:main"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.9"
+strict = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"

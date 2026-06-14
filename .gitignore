@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Ghost Sync runtime data (never commit private keys!)
+.ghostsync/
+
+# Graphify analysis output (generated)
+graphify-out/
+
+# Voice messages (local only)
+.voice-messages/
+
+# Scratch / learning exercises (local only)
+scratch.py
+test_async.py
+test_cancel.py
+ghost_sync/scratch.py
+
+# Reference implementation and teaching docs (local dev aids, not product code)
+ghost_sync_reference/
+tests_reference/
+ProtocolHandoff.md
+
+# GitHub copilot config (local tooling)
+.github/copilot-instructions.md
+
+# Gemini / AI assistant data
+.gemini/
